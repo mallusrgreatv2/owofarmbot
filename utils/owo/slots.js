@@ -6,22 +6,13 @@ const sleep = require("../sleep");
  * @param {import("discord.js-selfbot-v13").Client} client The client
  * @param {String} prefix The prefix to log with
  * @param {String} channelID The channel ID to post the message in
+ * @param {String} currentBet
  */
-module.exports = async function huntAndBattle(client, prefix, channelID) {
+module.exports = async function coinflip(client, prefix, channelID) {
   const channel = client.channels.cache.get(channelID);
 
   await startTyping(channel, !settings.typingindicator);
-  await channel.send("owo hunt");
-  if(global.mainbanc && settings.inventory.inventorycheck) {
-    setTimeout(() => {
-      
-    })
-  }
-  console.log(`${prefix} | Hunt ✅`);
-
-  setTimeout(async () => {
-    await channel.send("owo battle");
-    console.log(`${prefix} | Battle ✅`);
-  }, 700);
-  await sleep(1000)
+  await channel.send(`owo slots ${settings.gamble.slots.amount}`);
+  console.log(`Gamble / Slots ✅ / Amount: ${settings.gamble.slots.amount}`);
+  await sleep(1000);
 };
